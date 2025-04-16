@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { 
   Card, 
@@ -35,7 +34,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MediaUploader } from "@/components/media/MediaUploader";
-import { Link, Link2, Heading1, Heading2, Heading3, Paragraph } from "lucide-react";
+import { 
+  Link2, 
+  Heading1, 
+  Heading2, 
+  Heading3,
+  Type  // Replace Paragraph with Type
+} from "lucide-react";
 
 // Mock categories
 const categories = [
@@ -248,7 +253,7 @@ export default function PostForm({ defaultValues, isEditing = false }: PostFormP
                         size="sm" 
                         onClick={() => insertFormatting('p')}
                       >
-                        <Paragraph className="h-4 w-4" />
+                        <Type className="h-4 w-4" />
                       </Button>
                       <Button 
                         type="button" 
