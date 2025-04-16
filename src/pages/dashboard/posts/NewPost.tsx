@@ -1,6 +1,7 @@
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import PostForm from "@/components/posts/PostForm";
+import { Card } from "@/components/ui/card";
 
 export default function NewPost() {
   return (
@@ -9,7 +10,9 @@ export default function NewPost() {
         title="Create New Post" 
         description="Add a new post to your blog with content and SEO optimization." 
       />
-      <PostForm />
+      <Card className="bg-white rounded-lg border-0 shadow-sm">
+        <PostForm />
+      </Card>
     </div>
   );
 }

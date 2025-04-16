@@ -2,6 +2,7 @@
 import { useParams } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import PostForm from "@/components/posts/PostForm";
+import { Card } from "@/components/ui/card";
 
 // Mock post data
 const posts = [
@@ -16,7 +17,10 @@ const posts = [
     slug: "getting-started-with-react",
     seoTitle: "Getting Started with React - Complete Beginner's Guide",
     seoDescription: "Learn the fundamentals of React, the popular JavaScript library for building user interfaces and single-page applications.",
-    keywords: "react, javascript, components, jsx, frontend"
+    keywords: "react, javascript, components, jsx, frontend",
+    publishDate: "2023-06-15",
+    enableComments: true,
+    selectedPlugins: ["1", "3"]
   },
   {
     id: "2",
@@ -29,7 +33,10 @@ const posts = [
     slug: "advanced-typescript-tips",
     seoTitle: "Advanced TypeScript Tips for Professional Developers",
     seoDescription: "Discover advanced TypeScript techniques to improve your code quality and developer experience.",
-    keywords: "typescript, javascript, type safety, generics, interfaces"
+    keywords: "typescript, javascript, type safety, generics, interfaces",
+    publishDate: "2023-07-22",
+    enableComments: true,
+    selectedPlugins: []
   },
   {
     id: "3",
@@ -42,7 +49,10 @@ const posts = [
     slug: "future-of-web-development",
     seoTitle: "The Future of Web Development: Trends to Watch",
     seoDescription: "Explore the emerging technologies and methodologies that will shape the future of web development.",
-    keywords: "web development, future trends, AI, WebAssembly, JAMstack"
+    keywords: "web development, future trends, AI, WebAssembly, JAMstack",
+    publishDate: "2023-08-05",
+    enableComments: false,
+    selectedPlugins: ["2", "4"]
   }
 ];
 
@@ -70,7 +80,9 @@ export default function EditPost() {
         title={`Edit Post: ${post.title}`} 
         description="Update your blog post content and settings." 
       />
-      <PostForm defaultValues={post} isEditing />
+      <Card className="bg-white rounded-lg border-0 shadow-sm">
+        <PostForm defaultValues={post} isEditing />
+      </Card>
     </div>
   );
 }
