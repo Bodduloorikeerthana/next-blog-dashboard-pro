@@ -7,7 +7,7 @@ export default function NewPost() {
     <div className="space-y-6">
       <DashboardHeader 
         title="Create New Post" 
-        description="Add a new post to your blog." 
+        description="Add a new post to your blog with content and SEO optimization." 
       />
       <PostForm />
     </div>
