@@ -9,8 +9,7 @@ import {
   Image,
   Settings,
   Menu,
-  X,
-  Globe
+  X
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -48,37 +47,34 @@ export default function DashboardSidebar() {
 
   return (
     <div className={cn(
-      "flex h-screen flex-col bg-white border-r border-gray-200 transition-all duration-300",
+      "flex h-screen flex-col bg-sidebar text-sidebar-foreground transition-all duration-300",
       isCollapsed ? "w-[70px]" : "w-[250px]"
     )}>
-      <div className="flex h-16 items-center px-4 border-b border-gray-100">
+      <div className="flex h-14 items-center px-3 border-b border-sidebar-border">
         {!isCollapsed ? (
-          <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Your CMS
-          </span>
+          <h1 className="px-2 text-xl font-bold">CMS Admin</h1>
         ) : (
-          <Globe className="h-6 w-6 text-blue-600" />
+          <span className="px-2 text-xl font-bold">CMS</span>
         )}
         <Button 
           variant="ghost" 
           size="icon" 
-          className="ml-auto hover:bg-gray-100"
+          className="ml-auto text-sidebar-foreground hover:bg-sidebar-accent"
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
-          {isCollapsed ? <Menu className="h-5 w-5" /> : <X className="h-5 w-5" />}
+          {isCollapsed ? <Menu size={20} /> : <X size={20} />}
         </Button>
       </div>
-      
-      <nav className="flex-1 space-y-1 px-3 py-6">
+      <nav className="space-y-1 px-2 py-5 flex-1">
         {navItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
             className={cn(
-              "flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
+              "flex items-center px-2 py-2 rounded-md font-medium transition-colors",
               location.pathname === item.path
-                ? "bg-blue-50 text-blue-700"
-                : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                ? "bg-sidebar-primary text-sidebar-primary-foreground"
+                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
             )}
           >
             <item.icon className={cn("h-5 w-5", !isCollapsed && "mr-3")} />
@@ -86,16 +82,14 @@ export default function DashboardSidebar() {
           </Link>
         ))}
       </nav>
-
-      <div className="p-4 border-t border-gray-100">
+      <div className="px-3 py-4 border-t border-sidebar-border">
         {!isCollapsed && (
-          <div className="flex items-center space-x-3">
-            <div className="h-9 w-9 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white font-medium">
+          <div className="flex items-center">
+            <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
               A
             </div>
-            <div>
-              <p className="text-sm font-medium text-gray-900">Admin User</p>
-              <p className="text-xs text-gray-500">admin@example.com</p>
+            <div className="ml-3">
+              <p className="text-sm font-medium">Admin User</p>
             </div>
           </div>
         )}
